@@ -1,5 +1,5 @@
-from orcamento import Orcamento
-from impostos import ISS, ICMS
+from strategy_chain_of_responsibility.model.orcamento import Orcamento
+from strategy_chain_of_responsibility.service.impostos import ISS, ICMS
 
 class CalculadorImpostos(object):
 
