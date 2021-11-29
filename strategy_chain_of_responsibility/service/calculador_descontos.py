@@ -9,7 +9,7 @@ https://www.python.org/dev/peps/pep-0263/
 https://github.com/python
 https://github.com/python/peps
 '''
-from strategy_chain_of_responsibility.service.descontos import DescontoValorMaiorQuinhentos
+from strategy_chain_of_responsibility.service.descontos import DescontoValorMaiorQuinhentos, DescontoMaisCincoItens
 
 
 class CalculadorDescontos(object):
@@ -36,7 +36,14 @@ if __name__ == '__main__':
     print(str(orcamento1.valor_total))
     print(str(orcamento2.valor_total))
 
+
+    valor_desconto = CalculadorDescontos().calcula_desconto(orcamento1, DescontoMaisCincoItens())
+    print(valor_desconto)
+
     valor_desconto = CalculadorDescontos().calcula_desconto(orcamento1, DescontoValorMaiorQuinhentos())
+    print(valor_desconto)
+
+    valor_desconto = CalculadorDescontos().calcula_desconto(orcamento2, DescontoMaisCincoItens())
     print(valor_desconto)
 
     valor_desconto = CalculadorDescontos().calcula_desconto(orcamento2, DescontoValorMaiorQuinhentos())
