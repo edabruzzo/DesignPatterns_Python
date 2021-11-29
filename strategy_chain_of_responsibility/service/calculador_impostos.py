@@ -12,6 +12,6 @@ class CalculadorImpostos(object):
 
 if __name__ == '__main__':
     calculador = CalculadorImpostos()
-    orcamento = Orcamento(10000)
+    orcamento = Orcamento()
     calculador.realiza_calculo(orcamento, ISS())
     calculador.realiza_calculo(orcamento, ICMS())
