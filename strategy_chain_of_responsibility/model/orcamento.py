@@ -16,10 +16,10 @@ class Orcamento(object):
         self.__itens = itens
 
     @property
-    def valor(self):
+    def valor_total(self):
         total = 0.0
-        for item in self.__itens:
-            total += item.valor()
+        for item in self.itens:
+            total += item.valor
         return total
 
 
@@ -32,7 +32,7 @@ class Orcamento(object):
 
 
     def add_item(self, item):
-        self.__itens.append(item)
+        self.itens.append(item)
 
 
 class Item(object):
@@ -46,7 +46,6 @@ class Item(object):
         return self.__nome
 
     @nome.setter
-    @property
     def nome(self,nome):
         self.__nome = nome
 
@@ -54,7 +53,6 @@ class Item(object):
     def valor(self):
         return self.__valor
 
-    @property
     @valor.setter
     def valor(self, valor):
         self.__valor = valor
