@@ -1,13 +1,22 @@
 class Desconto(object):
 
-    def calcular(self, orcamento, percentual, condicao):
-        if condicao == True:
-            return orcamento.valor_total * percentual
-        else:
-            return 0
+    def __init__(self, proximo_desconto_cadeia):
+        self.__proximo_desconto_cadeia = proximo_desconto_cadeia
 
+
+    def calcular(self, orcamento, percentual, condicao):
+        desconto = 0.0
+        if condicao == True:
+            desconto =  orcamento.valor_total * percentual
+        else:
+            if self.__proximo_desconto_cadeia is not None:
+                desconto = self.__proximo_desconto_cadeia.calcula_desconto(orcamento)
+        return desconto
 
 class DescontoMaisCincoItens(Desconto):
+
+    def __init__(self):
+        Desconto.__init__(DescontoValorMaiorQuinhentos())
 
     def calcula_desconto(self, orcamento):
         condicao = orcamento.total_itens > 5
